@@ -1,0 +1,51 @@
+.mainContainer {
+  background-color: #4a69bd;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 10%;
+}
+
+/* ============ Input Box related ============ */
+.inputContainer {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding: 1.5em;
+  border-radius: 10px;
+  font-size: 1.3em;
+  width: 80%;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.button {
+  margin-left: 1.5em;
+  width: 15%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  background-color: #f6b93b;
+  font-size: 1.7em;
+  color: white;
+  font-weight: 800;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+:global(.Toastify__toast) {
+  font-size: 1.15em;
+  font-weight: 600;
+}
+
+:global(.Toastify__toast--success) {
+  background: #f6b93b !important;
+}
