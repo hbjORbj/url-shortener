@@ -1,10 +1,14 @@
 import shortid from "shortid";
 import Url from "../models/Url";
 import sanitize from "mongo-sanitize";
+import validUrl from "valid-url";
 
 export const shortenUrl = async (req, res) => {
   let { longUrl } = req.body;
   longUrl = sanitize(longUrl).trim();
+  if (!validUrl.isUri(longUrl)) {
+    return res.status(401).json({ error: "Given long url is invalid." });
+  }
   try {
     const url = await Url.findOne({ longUrl }, { shortUrl: 1 });
     return res.json({ shortUrl: url.shortUrl });

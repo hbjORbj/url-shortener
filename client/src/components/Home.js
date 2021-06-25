@@ -37,9 +37,13 @@ export default function Home({ match }) {
         body: JSON.stringify({ longUrl }),
       }).then(async (res) => {
         const data = await res.json();
-        navigator.clipboard.writeText(data.shortUrl);
-        toast.success("Copied to your clipboard!");
-        setLongUrl("");
+        if (data.error) {
+          toast.error("Invalid URL 😂");
+        } else {
+          navigator.clipboard.writeText(data.shortUrl);
+          toast.success("Copied to your clipboard!");
+          setLongUrl("");
+        }
       });
     } catch (err) {
       // expected to be never reached
